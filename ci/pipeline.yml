@@ -3,7 +3,7 @@ resources:
   type: git
   source:
     uri: https://github.com/vijaykothapalli07/apps-movie-fun-code  #<---- REPLACE ME
-    branch: concourse_deployment
+    branch: master
 
 - name: deploy-movie-service
   type: cf
