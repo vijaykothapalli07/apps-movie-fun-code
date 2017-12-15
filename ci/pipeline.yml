@@ -14,3 +14,15 @@ resources:
     organization: vkothapalli-PAL-Dec11    #<---- REPLACE ME
     space: sandbox         #<---- REPLACE ME
     skip_cert_check: false
+
+jobs:
+- name: build
+  public: true
+  plan:
+  - get: movie-service
+  - task: package
+    file: movie-service/ci/tasks/package.yml
+  - put: deploy-movie-service
+    params:
+      manifest: movie-service/manifest.yml
+      path: package-output/movie-service.jar
